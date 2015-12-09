@@ -3,10 +3,10 @@ function c = fapXY(img, xFilter, yFilter, threshold)
 %calculates the magnitude of change from the 2
 x = conv2(double(img), double(xFilter), 'same');
 y = conv2(double(img), double(yFilter), 'same');
-c = magn(x, y, threshold);
+c = magnitude(x, y, threshold);
 
 end
-function m = magn(x, y, t)
+function m = magnitude(x, y, t)
 %MAGN Calculates the magnitude of change from 2 gradients given as
 %input and applies a gradient to it
 m = sqrt(x.^2 + y.^2) > t;
