@@ -11,10 +11,10 @@ img9343 = img9343(:,:,2);
 img10905 = img10905(:,:,2);
 img43590 = img43590(:,:,2);
 
-% Change image representations to double to stop MatLab complaints
-img9343 = im2double(img9343);
-img10905 = im2double(img10905);
-img43590 = im2double(img43590);
+% Apply Gaussian smoothing
+img9343 = fap(img9343, gaussian_filter_5x5, 0);
+img10905 = fap(img10905, gaussian_filter_5x5, 0);
+img43590 = fap(img43590, gaussian_filter_5x5, 0);
 
 img = img9343;
 
