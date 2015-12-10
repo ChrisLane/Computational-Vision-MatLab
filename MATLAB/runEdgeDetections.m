@@ -20,14 +20,14 @@ img = img9343;
 
 % APPLY FILTERS
 % Simple Gradient
-imgSimpleGradient = fapXY(img, difference_gradient_filterX, difference_gradient_filterY, 1);
+imgSimpleGradient = fapXY(img, difference_gradient_filterX, difference_gradient_filterY, 25);
 % Roberts
-imgRoberts = fapXY(img, robertsX, robertsY, 1);
+imgRoberts = fapXY(img, robertsX, robertsY, 17);
 % Sobel
-imgSobel = fapXY(img, sobelX, sobelY, 1);
+imgSobel = fapXY(img, sobelX, sobelY, 85);
 % First Order Gaussian
-imgFOD = fap(img, first_order_gaussian_filter_1d_length5, 1);
+imgFOD = fap(img, first_order_gaussian_filter_1d_length5, 3);
 % Laplacian
-imgLaplacian = abs(fap(img, laplacian, 1));
+imgLaplacian = abs(fap(img, laplacian, 2.75));
 % Laplacian of Gaussian
-imgLOG = abs(fap(img, laplacian_of_gaussian, 1));
+imgLOG = abs(fap(img, laplacian_of_gaussian, 2.5));
