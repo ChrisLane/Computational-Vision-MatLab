@@ -32,5 +32,5 @@ for i=1:size(img,1)
 end
 sensitivity = TP/(TP+FN);
 specificity = TN/(TN+FP);
-f = [sensitivity, specificity];
+f = [specificity, sensitivity];
 end
