@@ -31,5 +31,3 @@ imgFOD9343 = fap(img, first_order_gaussian_filter_1d_length5, 1);
 imgLaplacian9343 = abs(fap(img, laplacian, 1));
 % Laplacian of Gaussian
 imgLOG9343 = abs(fap(img, laplacian_of_gaussian, 1));
-
-
