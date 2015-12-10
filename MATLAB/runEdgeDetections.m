@@ -16,29 +16,30 @@ img9343 = fap(img9343, gaussian_filter_5x5, 0);
 img10905 = fap(img10905, gaussian_filter_5x5, 0);
 img43590 = fap(img43590, gaussian_filter_5x5, 0);
 
-img = img9343;
+img = img43590;
 refEdgeImage = 1- im2bw(cdata);
 % APPLY FILTERS
 % Simple Gradient
-imgSimpleGradient = fapXY(img, difference_gradient_filterX, difference_gradient_filterY, 25);
+imgSimpleGradient = fapXY(img, difference_gradient_filterX, difference_gradient_filterY, 7);
 % Roberts
-imgRoberts = fapXY(img, robertsX, robertsY, 17);
+imgRoberts = fapXY(img, robertsX, robertsY, 4);
 % Sobel
-imgSobel = fapXY(img, sobelX, sobelY, 85);
+imgSobel = fapXY(img, sobelX, sobelY, 25);
 % First Order Gaussian
-imgFOD = fap(img, first_order_gaussian_filter_1d_length5, 3);
+imgFOD = fap(img, first_order_gaussian_filter_1d_length5, 1);
 % Laplacian
-imgLaplacian = abs(fap(img, laplacian, 2.75));
-% Laplacian of Gaussian
-imgLOG = abs(fap(img, laplacian_of_gaussian, 2.5));
+imgLaplacian = abs(fap(img, laplacian, 1));
+% Laplacian of Gaussian 
+imgLOG = fap(img,gaussian_filter_5x5, 0);
+imgLOG = abs(fap(imgLOG, laplacian_of_gaussian, 0.5));
 
 % Apply ROC Analisys to all images and concatenate results in array
-sgroc = myroc(1-imgSimpleGradient,refEdgeImage); 
-robroc = myroc(1-imgRoberts,refEdgeImage); 
-sobroc = myroc(1-imgSobel,refEdgeImage); 
-fodroc = myroc(1-imgFOD,refEdgeImage);
-laplroc = myroc(1-imgLaplacian,refEdgeImage);
-logroc = myroc(1-imgLOG,refEdgeImage);
+sgroc = myroc(1-imgSimpleGradient,refEdgeImage)
+robroc = myroc(1-imgRoberts,refEdgeImage)
+sobroc = myroc(1-imgSobel,refEdgeImage)
+fodroc = myroc(1-imgFOD,refEdgeImage)
+laplroc = myroc(1-imgLaplacian,refEdgeImage)
+logroc = myroc(1-imgLOG,refEdgeImage)
 
 % Plot ROC results for this image
 figure
