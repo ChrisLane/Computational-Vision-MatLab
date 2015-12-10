@@ -1,6 +1,5 @@
-function x = fap(img, filter)
-%FAP applies 2 given X and Y filters to an image given as input,
-%calculates the magnitude of change from the 2
+function c = fap(img, filter, threshold)
+%FAP applies a filter to an image given as input,
 x = conv2(img, filter, 'same');
-
+c = x > threshold;
 end
