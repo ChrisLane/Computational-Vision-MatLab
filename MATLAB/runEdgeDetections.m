@@ -16,8 +16,14 @@ img9343 = fap(img9343, gaussian_filter_5x5, 0);
 img10905 = fap(img10905, gaussian_filter_5x5, 0);
 img43590 = fap(img43590, gaussian_filter_5x5, 0);
 
-img = img43590;
-refEdgeImage = 1- im2bw(cdata);
+% Apply sharpening
+img9343 = imsharpen(img9343);
+img10905 = imsharpen(img10905);
+img43590 = imsharpen(img43590);
+
+img = img9343;
+refEdgeImage = 1 - im2bw(cdata);
+
 % APPLY FILTERS
 % Simple Gradient
 imgSimpleGradient = fapXY(img, difference_gradient_filterX, difference_gradient_filterY, 7);
